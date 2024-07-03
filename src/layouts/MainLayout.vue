@@ -11,7 +11,6 @@
           @click="toggleLeftDrawer"
         />
         <q-toolbar-title> RPG Personagens </q-toolbar-title>
-        <div>Quasar v{{ $q.version }}</div>
       </q-toolbar>
     </q-header>
 
@@ -40,6 +39,25 @@
     <q-page-container>
       <router-view />
     </q-page-container>
+  </q-layout>
+  <q-layout view="hHh Lpr fFf">
+    <q-footer
+      style="height: 70px"
+      class="shadow-2 rounded-borders"
+      :class="$q.dark.isActive ? 'primary' : 'primary'"
+    >
+      <q-btn-group spread class="fotermenu">
+        <router-link to="/personagens/view" class="custom-link">
+          <q-icon name="settings_accessibility" size="40px"
+        /></router-link>
+        <router-link to="/personagens/view" class="custom-link">
+          <q-icon name="home" size="40px"
+        /></router-link>
+        <router-link to="/" class="custom-link">
+          <q-icon name="timeline" size="40px"
+        /></router-link>
+      </q-btn-group>
+    </q-footer>
   </q-layout>
 </template>
 
@@ -98,5 +116,19 @@ function navigateTo(route) {
 router-link {
   text-decoration: none;
   color: inherit;
+  border: solid 1px gray;
+}
+
+.fotermenu {
+  align-items: center;
+  height: 70px;
+}
+
+.custom-link {
+  text-align: center;
+  width: 100%;
+  text-decoration: none;
+  color: inherit;
+  justify-items: center;
 }
 </style>
