@@ -51,8 +51,7 @@ export default {
   text-align: center;
 }
 .border-card {
-  height: 100%;
-  width: 140px;
+  width: 33vw;
   border: solid 1px #e0e0e0;
   margin: 10px;
   box-shadow: 20 0 10px gray;
