@@ -333,7 +333,6 @@ export default {
   },
   methods: {
     filterFn(val, update, options) {
-      debugger;
       if (val === "") {
         update(() => {
           options.value = stringOptions;
