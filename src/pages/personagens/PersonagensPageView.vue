@@ -1,6 +1,6 @@
 <template>
   <q-page class="flex flex-center">
-    <div v-for="(row, index) in this.pers" :key="index">
+    <div v-for="(row, index) in this.character" :key="index">
       <kp-cardinfo :personagem="row"></kp-cardinfo>
     </div>
     <q-page-sticky position="bottom-right" :offset="fabPos">
@@ -27,8 +27,7 @@
 
 <script >
 import KpCardinfo from "src/components/KpCardinfo.vue";
-import { peronagens } from "../index";
-import { useRouter, useRoute } from "vue-router";
+import { useRouter } from "vue-router";
 import { ref } from "vue";
 
 export default {
@@ -39,7 +38,6 @@ export default {
     const fabPos = ref([18, 18]);
     const draggingFab = ref(false);
     const router = useRouter();
-    const route = useRoute();
 
     return {
       fabPos,
@@ -57,9 +55,14 @@ export default {
       },
     };
   },
+  created() {
+    const savedCharacters = localStorage.getItem("characters");
+    this.character = JSON.parse(savedCharacters);
+    console.log(this.character);
+  },
   data() {
     return {
-      pers: peronagens,
+      pers: this.character,
     };
   },
 };

@@ -53,7 +53,7 @@
           <q-icon name="home" size="40px"
         /></router-link>
         <router-link to="/" class="custom-link">
-          <q-icon name="timeline" size="40px"
+          <q-icon name="eco" size="40px"
         /></router-link>
       </q-btn-group>
     </q-footer>

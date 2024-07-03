@@ -315,7 +315,6 @@ const skillAttributes = {
 };
 
 import { ref } from "vue";
-import { peronagens } from "../index";
 import panel from "../../components/panel.vue";
 
 export default {
@@ -339,6 +338,8 @@ export default {
   },
   created() {
     if (this.hasId) {
+      const savedCharacters = localStorage.getItem("characters");
+      const peronagens = JSON.parse(savedCharacters);
       const index = peronagens.findIndex(
         (perso) => perso.id === Number(this.$route.query.id)
       );

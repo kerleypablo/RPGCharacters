@@ -1,1 +1,8 @@
 // app global css in SCSS form
+.fixed-card {
+    position: fixed;
+    width: 100%;
+    bottom: 60px; /* Ajuste conforme necessário */
+    right: 0px; /* Ajuste conforme necessário */
+    z-index: 1000; /* Certifique-se de que o card fique acima de outros elementos */
+  }

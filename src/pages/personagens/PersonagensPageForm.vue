@@ -203,7 +203,7 @@
           </q-card>
         </div>
       </div>
-      <q-card class="q-pa-md">
+      <q-card class="fixed-card">
         <q-card-actions align="right">
           <q-btn
             color="primary"
@@ -248,7 +248,7 @@ const skillAttributes = {
 };
 
 import { ref } from "vue";
-import { peronagens, classes, racas } from "../index";
+import { classes, racas } from "../index";
 import PersonagemPageFormId from "./personagemPageFormId.vue";
 import selectFilter from "../../components/selectFilter.vue";
 
@@ -309,11 +309,13 @@ export default {
   },
   created() {
     if (this.hasId) {
-      const index = peronagens.findIndex(
+      const savedCharacters = localStorage.getItem("characters");
+      const savePersonagem = JSON.parse(savedCharacters);
+      const index = savePersonagem.findIndex(
         (perso) => perso.id === Number(this.$route.query.id)
       );
       if (index !== -1) {
-        this.character = peronagens[index];
+        this.character = savePersonagem[index];
       }
     }
     this.resetForm();
@@ -372,22 +374,19 @@ export default {
       this.character.skills[skill][field] = value;
     },
     handleSubmit() {
-      if (this.character.id) {
-        const Personagem = peronagens.find(
-          (perso) => person.id === this.character.id
-        );
-        Personagem = this.character;
-        const index = peronagens.findIndex(
-          (perso) => perso.id === this.character.id
-        );
-        if (index !== -1) {
-          usperonagensers.splice(index, 1, Personagem);
-        }
+      const savedCharacters = localStorage.getItem("characters");
+      if (savedCharacters) {
+        const personagens = JSON.parse(savedCharacters);
+        this.character.id = savedCharacters.length + 1;
+        personagens.push(this.character);
+        localStorage.setItem("characters", JSON.stringify(personagens));
         this.$router.push(`${this.$route.fullPath}?id=${this.character.id}`);
+        this.hasId = true;
         return;
       }
-      this.character.id = peronagens.length + 1;
-      peronagens.push(this.character);
+      this.character.id = 1;
+      const save = [this.character];
+      localStorage.setItem("characters", JSON.stringify(save));
 
       this.$router.push(`${this.$route.fullPath}?id=${this.character.id}`);
       this.hasId = true;
