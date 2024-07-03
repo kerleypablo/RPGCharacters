@@ -39,10 +39,9 @@
     <q-page-container>
       <router-view />
     </q-page-container>
-  </q-layout>
-  <q-layout view="hHh Lpr fFf">
+
     <q-footer
-      style="height: 70px"
+      style="height: 60px"
       class="shadow-2 rounded-borders"
       :class="$q.dark.isActive ? 'primary' : 'primary'"
     >
@@ -50,7 +49,7 @@
         <router-link to="/personagens/view" class="custom-link">
           <q-icon name="settings_accessibility" size="40px"
         /></router-link>
-        <router-link to="/personagens/view" class="custom-link">
+        <router-link to="/" class="custom-link">
           <q-icon name="home" size="40px"
         /></router-link>
         <router-link to="/" class="custom-link">

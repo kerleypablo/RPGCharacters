@@ -8,6 +8,7 @@
         icon="add"
         direction="up"
         color="accent"
+        class="q-pb-xl"
         :disable="draggingFab"
         v-touch-pan.prevent.mouse="moveFab"
       >
