@@ -20,35 +20,39 @@
             <panel>
               <div class="tabInfochar">
                 <div class="fotochar">foto</div>
-                <diiv>
-                  <spam class="infoTitle">NOME: </spam>
-                  <spam class="info">{{ this.character.characterName }}</spam>
-                </diiv>
-                <diiv>
-                  <spam class="infoTitle">RAÇA: </spam>
-                  <spam class="info">{{ this.character.race }}</spam>
-                </diiv>
-                <diiv>
-                  <spam class="infoTitle">ORIGEM: </spam>
-                  <spam class="info">{{ this.character.origin }}</spam>
-                </diiv>
-                <diiv>
-                  <spam class="infoTitle">CLASEE: </spam>
-                  <spam class="info">{{ this.character.characterClass }}</spam>
-                </diiv>
-                <diiv>
-                  <spam class="infoTitle">LEVEL: </spam>
-                  <spam class="info">{{ this.character.level }}</spam>
-                </diiv>
-                <diiv>
-                  <spam class="infoTitle">deity: </spam>
-                  <spam class="info">{{ this.character.deity }}</spam>
-                </diiv>
+                <div class="infochar">
+                  <diiv>
+                    <spam class="infoTitle">NOME: </spam>
+                    <spam class="info">{{ this.character.characterName }}</spam>
+                  </diiv>
+                  <diiv>
+                    <spam class="infoTitle">RAÇA: </spam>
+                    <spam class="info">{{ this.character.race }}</spam>
+                  </diiv>
+                  <diiv>
+                    <spam class="infoTitle">ORIGEM: </spam>
+                    <spam class="info">{{ this.character.origin }}</spam>
+                  </diiv>
+                  <diiv>
+                    <spam class="infoTitle">CLASEE: </spam>
+                    <spam class="info">{{
+                      this.character.characterClass
+                    }}</spam>
+                  </diiv>
+                  <diiv>
+                    <spam class="infoTitle">LEVEL: </spam>
+                    <spam class="info">{{ this.character.level }}</spam>
+                  </diiv>
+                  <diiv>
+                    <spam class="infoTitle">deity: </spam>
+                    <spam class="info">{{ this.character.deity }}</spam>
+                  </diiv>
+                </div>
               </div>
             </panel>
             <panel>
               <div class="panelAtributes">
-                <div class="flex q-ma-sm" style="width: 25%">
+                <div class="circleContent" style="justify-content: center">
                   <q-knob
                     disable
                     max="20"
@@ -64,7 +68,7 @@
                     strength
                   </spam>
                 </div>
-                <div class="flex q-ma-sm" style="width: 25%">
+                <div class="circleContent" style="justify-content: center">
                   <q-knob
                     disable
                     max="20"
@@ -80,13 +84,13 @@
                     dexterity
                   </spam>
                 </div>
-                <div class="flex q-ma-sm" style="width: 25%">
+                <div class="circleContent" style="justify-content: center">
                   <q-knob
                     disable
                     max="20"
                     v-model="this.character.attributes.constitution"
                     show-value
-                    size="96px"
+                    size="92px"
                     :thickness="0.22"
                     color="red"
                     track-color="red-3"
@@ -96,13 +100,13 @@
                     constitution
                   </spam>
                 </div>
-                <div class="flex q-ma-sm" style="width: 25%">
+                <div class="circleContent" style="justify-content: center">
                   <q-knob
                     disable
                     max="20"
                     v-model="this.character.attributes.intelligence"
                     show-value
-                    size="96px"
+                    size="95px"
                     :thickness="0.22"
                     color="red"
                     track-color="red-3"
@@ -112,7 +116,7 @@
                     intelligence
                   </spam>
                 </div>
-                <div class="flex q-ma-sm" style="width: 25%">
+                <div class="circleContent" style="justify-content: center">
                   <q-knob
                     disable
                     max="20"
@@ -128,7 +132,7 @@
                     wisdom
                   </spam>
                 </div>
-                <div class="flex q-ma-sm" style="width: 25%">
+                <div class="circleContent" style="justify-content: center">
                   <q-knob
                     disable
                     max="20"
@@ -151,13 +155,13 @@
                 class="q-pa-md flex flex-center"
                 style="width: 100%; color: black"
               >
-                <div class="flex q-ma-sm" style="width: 30%">
+                <div class="circleContent" style="padding: 50px 10px">
                   <q-knob
                     disable
                     max="20"
                     v-model="this.character.attributes.charisma"
                     show-value
-                    size="90px"
+                    size="110px"
                     :thickness="0.22"
                     color="green"
                     track-color="green-3"
@@ -168,13 +172,13 @@
                   </spam>
                 </div>
 
-                <div class="flex q-ma-sm" style="width: 30%">
+                <div class="circleContent">
                   <q-knob
                     readonly
                     max="20"
                     v-model="this.character.attributes.charisma"
                     show-value
-                    size="90px"
+                    size="110px"
                     :thickness="0.22"
                     color="primary"
                     track-color="blue-3"
@@ -191,13 +195,13 @@
                 class="q-pa-md flex flex-center"
                 style="width: 100%; color: black"
               >
-                <div class="q-pa-md flex flex-center" style="width: 50%">
+                <div class="circleContent" style="width: 50%">
                   <q-knob
                     disable
                     max="20"
                     v-model="this.character.attributes.charisma"
                     show-value
-                    size="90px"
+                    size="110px"
                     :thickness="0.22"
                     color="orange"
                     track-color="orange-3"
@@ -444,23 +448,9 @@ export default {
 </script>
 
 <style scoped>
-.circle {
-  background-color: rgb(231, 151, 151);
-  display: flex;
-  margin: 10px;
-  border: 3px solid black;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  height: 80px;
-  width: 80px;
-  border-radius: 50%;
-}
-
 .panelAtributes {
   display: flex;
   flex-wrap: wrap;
-  width: 100%;
   padding: 0;
   justify-content: center;
   align-items: center;
@@ -472,25 +462,34 @@ export default {
   margin-top: 20px;
 }
 
+.circleContent {
+  display: grid;
+  justify-items: center;
+  padding: 10px 10px;
+}
+
 .tabInfochar {
   color: black;
-  width: 100%;
+  width: 100vw;
   justify-content: space-between;
   flex-wrap: wrap;
   margin-top: 0;
 }
 
 .fotochar {
-  width: 100%;
   display: block;
   text-align: center;
   padding: auto;
+}
+.infochar {
+  text-align: center;
 }
 
 .infoTitle {
   font-size: 12px;
   padding-right: 10px;
   font-weight: bold;
+  width: 100%;
 }
 
 .periciasclass {
