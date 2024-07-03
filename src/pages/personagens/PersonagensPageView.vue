@@ -1,7 +1,14 @@
 <template>
   <q-page class="flex flex-center">
-    <div v-for="(row, index) in this.character" :key="index">
-      <kp-cardinfo :personagem="row"></kp-cardinfo>
+    <div v-if="this.character">
+      <div v-for="(row, index) in this.character" :key="index">
+        <kp-cardinfo :personagem="row"></kp-cardinfo>
+      </div>
+    </div>
+    <div v-else style="text-align: center">
+      <spam>{{
+        "nenhum personagem cadastrado clicke em '+' para cadastrar"
+      }}</spam>
     </div>
     <q-page-sticky position="bottom-right" :offset="fabPos">
       <q-fab
