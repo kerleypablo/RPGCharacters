@@ -22,6 +22,7 @@
             </q-tabs>
             <q-tab-panels v-model="tab" animated class="text-white">
               <q-tab-panel name="infos">
+                <image-picker-vue v-model="character.selectedImage" />
                 <q-input
                   clearable
                   filled
@@ -251,9 +252,10 @@ import { ref } from "vue";
 import { classes, racas } from "../index";
 import PersonagemPageFormId from "./personagemPageFormId.vue";
 import selectFilter from "../../components/selectFilter.vue";
+import ImagePickerVue from "src/components/ImagePicker.vue";
 
 export default {
-  components: { PersonagemPageFormId, selectFilter },
+  components: { PersonagemPageFormId, selectFilter, ImagePickerVue },
   name: "PersonagensPageForm",
   data() {
     return {
@@ -268,6 +270,7 @@ export default {
         level: 1,
         deity: "",
         foto: "",
+        selectedImage: "",
         attributes: {
           strength: 0,
           dexterity: 0,

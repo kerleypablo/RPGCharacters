@@ -4,6 +4,7 @@ import PersonagensPageView from 'src/pages/personagens/PersonagensPageView.vue';
 import PersonagensPageForm from 'src/pages/personagens/PersonagensPageForm.vue';
 import ErrorNotFound from 'pages/ErrorNotFound.vue';
 import EquipamentosPageForm from 'src/pages/equipamentos/EquipamentosPageForm.vue';
+import EquipamentoPageView from 'src/pages/equipamentos/EquipamentoPageView.vue';
 
 
 const routes = [
@@ -29,7 +30,7 @@ const routes = [
     component: MainLayout,
     children: [
 
-      { path: 'view', component: PersonagensPageView },
+      { path: 'view', component: EquipamentoPageView },
       { path: 'form', name :'equipamentos-form', component: EquipamentosPageForm },
       { path: 'form/:id', name:'equipamentos-view', component: PersonagensPageForm }
     ]

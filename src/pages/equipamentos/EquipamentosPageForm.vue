@@ -163,6 +163,24 @@ export default {
     },
   },
   methods: {
+    clearForm() {
+      this.equipamento = {
+        equipamento: {
+          name: "",
+          type: "",
+          Numberdata: 1,
+          dado: "",
+          peso: "",
+          hands: "",
+          hasEfect: false,
+          efectDescription: "",
+          hasDamageEfect: false,
+          damageData: "",
+          damageNumberData: 1,
+          selectedImage: "",
+        },
+      };
+    },
     handleSubmit() {
       const savedEquipamento = localStorage.getItem("equipamentos");
       if (savedEquipamento) {
@@ -172,6 +190,7 @@ export default {
         localStorage.setItem("equipamentos", JSON.stringify(equipamentos));
         this.$router.push(`${this.$route.fullPath}?id=${this.equipamento.id}`);
         this.hasId = true;
+        this.clearForm();
         return;
       }
       this.equipamento.id = 1;
@@ -180,6 +199,7 @@ export default {
 
       this.$router.push(`${this.$route.fullPath}?id=${this.equipamento.id}`);
       this.hasId = true;
+      this.clearForm();
     },
   },
 };

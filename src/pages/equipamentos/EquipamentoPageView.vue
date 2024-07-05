@@ -1,8 +1,8 @@
 <template>
   <q-page class="flex flex-center">
-    <div v-if="this.character">
-      <div v-for="(row, index) in this.character" :key="index">
-        <kp-cardinfo :data="row"></kp-cardinfo>
+    <div v-if="this.equipamento">
+      <div v-for="(row, index) in this.equipamento" :key="index">
+        <kp-cardinfo :data="row" :isPersonagem="false"></kp-cardinfo>
       </div>
     </div>
     <div v-else style="text-align: center">
@@ -29,17 +29,17 @@
     </q-page-sticky>
   </q-page>
 </template>
-
-
-
-<script >
+  
+  
+  
+  <script >
 import KpCardinfo from "src/components/KpCardinfo.vue";
 import { useRouter } from "vue-router";
 import { ref } from "vue";
 
 export default {
   components: { KpCardinfo },
-  name: "PersonagenPageView",
+  name: "EquipamentoPageView",
   setup() {
     const fabPos = ref([18, 18]);
     const draggingFab = ref(false);
@@ -49,7 +49,7 @@ export default {
       fabPos,
       draggingFab,
       onClick() {
-        router.push(`/personagens/form`);
+        router.push(`/equipamentos/form`);
       },
       moveFab(ev) {
         draggingFab.value = ev.isFirst !== true && ev.isFinal !== true;
@@ -62,13 +62,14 @@ export default {
     };
   },
   created() {
-    const savedCharacters = localStorage.getItem("characters");
-    this.character = JSON.parse(savedCharacters);
+    const savedCharacters = localStorage.getItem("equipamentos");
+    this.equipamento = JSON.parse(savedCharacters);
   },
   data() {
     return {
-      pers: this.character,
+      pers: this.equipamento,
     };
   },
 };
 </script>
+  

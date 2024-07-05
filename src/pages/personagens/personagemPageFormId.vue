@@ -19,7 +19,12 @@
           <q-tab-panel name="infos">
             <panel>
               <div class="tabInfochar">
-                <div class="fotochar">foto</div>
+                <div class="fotochar">
+                  <img
+                    :src="this.character?.selectedImage || ''"
+                    class="imagecard"
+                  />
+                </div>
                 <div class="infochar">
                   <diiv>
                     <spam class="infoTitle">NOME: </spam>
