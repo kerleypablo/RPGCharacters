@@ -84,3 +84,26 @@ export const racas = [
     'Vanara',
     'Vardak',
     'Velocis']
+
+
+export const DADOS_RPG = {
+    D4: 4,
+    D6: 6,
+    D8: 8,
+    D10:10,
+    D12:12,
+    D20:20,
+    D40:40,
+    D100:100,
+}
+
+DADOS_RPG.OPTIONS = [
+        {label:'d4' ,value:DADOS_RPG.D4, order:4 },
+        {label:'d6', vaue : DADOS_RPG.D6, order:6},
+        {label:'d8', value: DADOS_RPG.D8, order:8},
+        {label:'d10', value: DADOS_RPG.D10, order: 10},
+        {label:'d12', value: DADOS_RPG.D20, order: 12},
+        {label:'d20', value: DADOS_RPG.D20,order: 20},
+        {label:'d40', value: DADOS_RPG.D40, order: 40},
+        {label:'d100', value: DADOS_RPG.D100, order:100},
+    ]

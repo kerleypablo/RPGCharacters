@@ -1,5 +1,5 @@
 <template>
-  <q-page>
+  <q-page c>
     <div style="text-align: center; padding: 35px 0px">
       <img
         alt="Quasar logo"
@@ -14,7 +14,7 @@
         link="/personagens/view"
         icon="settings_accessibility"
       />
-      <button-menu title="Equipamentos" link="/personagens/view" icon="eco" />
+      <button-menu title="Equipamentos" link="/equipamentos/view" icon="eco" />
       <button-menu
         title="Configurações"
         link="/personagens/view"

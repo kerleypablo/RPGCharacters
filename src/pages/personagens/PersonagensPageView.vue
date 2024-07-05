@@ -40,7 +40,6 @@ import { ref } from "vue";
 export default {
   components: { KpCardinfo },
   name: "PersonagenPageView",
-  title: "Contratos - Visualização",
   setup() {
     const fabPos = ref([18, 18]);
     const draggingFab = ref(false);
@@ -65,7 +64,6 @@ export default {
   created() {
     const savedCharacters = localStorage.getItem("characters");
     this.character = JSON.parse(savedCharacters);
-    console.log(this.character);
   },
   data() {
     return {

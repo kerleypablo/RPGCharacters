@@ -12,8 +12,7 @@
       bottom-slot
       use-input
       input-debounce="0"
-    >
-    </q-select>
+    />
   </div>
 </template>
 
@@ -57,7 +56,9 @@ export default {
         return options.value;
       }
       const needle = filterValue.value.toLowerCase();
-      return options.value.filter((v) => v.toLowerCase().includes(needle));
+      return options.value.filter((v) =>
+        v.label.toLowerCase().includes(needle)
+      );
     });
 
     const filterFn = (val, update) => {
@@ -81,6 +82,3 @@ export default {
   emits: ["update:modelValue", "change"],
 };
 </script>
-
-<style scoped>
-</style>
