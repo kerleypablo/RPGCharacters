@@ -21,7 +21,7 @@
             }}</span>
             <span class="text-caption text-grey q-ml-sm">Dano:</span>
             <span class="text-caption text-grey q-ml-sm">{{
-              `${data.Numberdata} ${data.dados.label} `
+              `${data?.Numberdata || 0} ${data?.dados?.label || ""} `
             }}</span>
           </div>
         </q-card-section>
@@ -123,5 +123,7 @@ export default {
 
 .imagecard
   width: 100%
+  object-fit: cover
   max-width: 300px
+  height: 150px
 </style>
