@@ -10,7 +10,10 @@
           aria-label="Menu"
           @click="toggleLeftDrawer"
         />
-        <q-toolbar-title> RPG Personagens </q-toolbar-title>
+
+        <q-toolbar-title
+          >{{ this.$route.fullPath.match(/\/([^\/]+)\//)?.[1] }}
+        </q-toolbar-title>
       </q-toolbar>
     </q-header>
 
@@ -52,7 +55,7 @@
         <router-link to="/" class="custom-link">
           <q-icon name="home" size="40px"
         /></router-link>
-        <router-link to="/" class="custom-link">
+        <router-link to="/equipamentos/view" class="custom-link">
           <q-icon name="eco" size="40px"
         /></router-link>
       </q-btn-group>
