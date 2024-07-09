@@ -4,13 +4,13 @@
       <q-card>
         <q-card-section class="border-card">
           <div class="row section">
-            <q-icon :name="icon" style="color: #ccc" size="6em" />
+            <q-icon :name="icon" style="color: #ccc" size="3em" class="icon" />
             <div
               v-if="title"
               class="panelTitle"
               :style="`color: ${color} ; text-align: center`"
             >
-              <spam style="font-size: 15px; font-weight: 800">{{ title }}</spam>
+              <spam style="font-weight: 800">{{ title }}</spam>
             </div>
             <slot />
           </div>
@@ -37,6 +37,7 @@ export default {
 
 <style scoped>
 .boxbutton {
+  box-sizing: content-box;
   display: flex;
   width: 100%;
 }
@@ -69,5 +70,22 @@ export default {
   text-decoration: none;
   color: inherit;
   justify-items: center;
+}
+.panelTitle > spam {
+  font-size: 15px;
+}
+@media (max-width: 600px) {
+  .border-card {
+    width: 20vw; /* Ajusta a largura para 80% da viewport */
+    margin: 5px; /* Reduz a margem */
+  }
+
+  .panelTitle {
+    padding-top: 10px; /* Reduz o padding */
+  }
+
+  .panelTitle > spam {
+    font-size: 10px;
+  }
 }
 </style>
