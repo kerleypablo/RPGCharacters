@@ -17,7 +17,6 @@ export default {
 
   created() {
     if (this.hasId) {
-      debugger;
       const storage = localStorage.getItem("equipamentos");
       const savedEquipamento = JSON.parse(storage);
       const index = savedEquipamento.findIndex(

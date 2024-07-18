@@ -27,8 +27,8 @@
     </q-card>
   </div>
 </template>
-  
-  <script>
+
+<script>
 import { ref } from "vue";
 
 export default {
@@ -40,8 +40,8 @@ export default {
   },
 };
 </script>
-  
-  <style lang="scss" scoped>
+
+<style lang="scss" scoped>
 .my-card {
   margin: 0;
   display: flex;
@@ -63,4 +63,3 @@ export default {
   max-width: 100vh;
 }
 </style>
-  
