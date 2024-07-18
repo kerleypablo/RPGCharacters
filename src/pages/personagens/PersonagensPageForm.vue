@@ -1,7 +1,7 @@
 <template>
   <form-page name-storage="characters" :model-value="this.character">
     <template v-slot:default>
-      <div style="margin-top: -50px; padding-left: 0px">
+      <div style="padding-left: 0px">
         <q-card>
           <q-tabs
             v-model="tab"

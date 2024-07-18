@@ -5,9 +5,7 @@
   <template v-else>
     <q-page>
       <q-page-container style="padding-top: 0px">
-        <panel>
-          <slot />
-        </panel>
+        <slot />
       </q-page-container>
       <q-card class="fixed-button">
         <q-card-actions align="right">
@@ -27,7 +25,7 @@
 import panel from "src/components/panel.vue";
 
 export default {
-  components: { panel },
+  components: {},
   name: "FormPage",
   setup() {
     return {};
