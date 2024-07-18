@@ -88,10 +88,10 @@ const linksList = [
     title: "Equipamentos",
     caption: "Gerenciar equipamentos",
     icon: "build",
-    route: "/equipamentos", // Ajuste conforme necessário
+    route: "/equipamentos/view", // Ajuste conforme necessário
   },
   {
-    title: "Batalha",
+    title: "Campanha",
     caption: "Simular batalhas",
     icon: "sports_kabaddi",
     route: "/batalha", // Ajuste conforme necessário

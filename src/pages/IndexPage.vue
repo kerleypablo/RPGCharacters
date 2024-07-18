@@ -1,6 +1,6 @@
 <template>
   <q-page c>
-    <div style="text-align: center; padding: 35px 0px">
+    <div style="text-align: center; padding: 10px 0px">
       <img
         alt="Quasar logo"
         src="~assets/quasar-logo-vertical.svg"
@@ -8,7 +8,7 @@
       />
     </div>
     <panel>
-      <button-menu title="Campanha" link="/personagens/view" icon="public" />
+      <button-menu title="Campanha" link="/campanhas/form" icon="public" />
       <button-menu
         title="Personagens"
         link="/personagens/view"

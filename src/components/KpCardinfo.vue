@@ -86,7 +86,12 @@
         </div>
       </q-slide-transition>
 
-      <router-link :to="'/personagens/form?id=' + data.id" class="custom-link">
+      <router-link
+        :to="`/${isPersonagem ? 'personagens' : 'equipamentos'}/form?id=${
+          data.id
+        }`"
+        class="custom-link"
+      >
         <img :src="data.selectedImage || ''" class="imagecard" />
       </router-link>
     </q-card>

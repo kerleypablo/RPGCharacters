@@ -1,5 +1,5 @@
 <template>
-  <div :class="panelClass" class="q-mt-md">
+  <div class="q-mt-md">
     <q-card class="panel no-shadow" :class="`border-card`">
       <div
         v-if="title"

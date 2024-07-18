@@ -1,206 +1,201 @@
 <template>
-  <div class="main-container">
-    <div class="content">
-      <image-picker-vue v-model="equipamento.selectedImage" />
-      <panel>
-        <div>
-          <q-input
-            clearable
-            filled
-            color="orange"
-            v-model="equipamento.name"
-            label="Nome"
-            class="q-pt-sm"
-          />
-          <div class="typeBox">
-            <label>Tipo:</label>
-            <div v-for="eqp in TIPO_EQUIPAMENTO.OPTIONS" :key="eqp.order">
-              <q-radio
-                keep-color
-                v-model="equipamento.type"
-                :val="eqp.value"
-                :label="eqp.label"
-                :color="eqp.color"
-              />
-            </div>
-          </div>
-        </div>
-      </panel>
-      <panel v-if="isArmor">
-        <div>
-          <q-input
-            clearable
-            filled
-            color="orange"
-            type="number"
-            v-model.number="equipamento.Numberdata"
-            label="numero de dados"
-            class="q-pt-sm"
-          />
-          <select-filter
-            :op="DADOS_RPG.OPTIONS"
-            v-model="equipamento.dados"
-            color="orange"
-            label="Tipo de Dado"
-          />
-          <div class="typeBox">
-            <label>Ocupa:</label>
-            <div v-for="tp in TIPO_MAOS.OPTIONS" :key="tp.order">
-              <q-radio
-                keep-color
-                v-model="equipamento.hands"
-                :val="tp.value"
-                :label="tp.label"
-                :color="tp.color"
-              />
-            </div>
-            <q-checkbox
-              v-model="equipamento.isMagic"
-              label="È magico?"
-              color="teal"
-            />
-          </div>
-        </div>
-      </panel>
-      <panel v-if="isEscudo || isArmadura">
-        <div>
-          <q-input
-            clearable
-            filled
-            color="orange"
-            type="number"
-            v-model.number="equipamento.defesa"
-            label="Defesa"
-            class="q-pt-sm"
-          />
-          <q-input
-            clearable
-            filled
-            color="orange"
-            type="number"
-            v-model.number="equipamento.penalidade"
-            label="Penalidade"
-            class="q-pt-sm"
-          />
-          <div class="typeBox">
-            <label>Tipo:</label>
-            <div v-for="tp in PESO.OPTIONS" :key="tp.order">
-              <q-radio
-                keep-color
-                v-model="equipamento.tipo"
-                :val="tp.value"
-                :label="tp.label"
-                :color="tp.color"
-              />
-            </div>
-            <q-checkbox
-              v-model="equipamento.isMagic"
-              label="È magico?"
-              color="teal"
-            />
-          </div>
-        </div>
-      </panel>
-      <panel>
-        <div class="q-pa-md">
-          <q-checkbox
-            v-model="equipamento.hasEfect"
-            label="Possui Efeito"
-            color="teal"
-          />
-          <div v-if="hasEfect">
-            <q-input
-              clearable
-              filled
-              autogrow
-              color="orange"
-              type="text"
-              v-model.number="equipamento.efectDescription"
-              label="Descreva o Efeito"
-              class="q-pt-sm"
-            />
-            <q-checkbox
-              v-model="equipamento.hasDamageEfect"
-              label="Possui Dano"
-              color="teal"
-            />
-          </div>
-          <div v-if="hasDamageEfect">
-            <q-input
-              clearable
-              filled
-              color="orange"
-              type="number"
-              v-model.number="equipamento.damageNumberData"
-              label="numero de dados"
-              class="q-pt-sm"
-            />
-            <select-filter
-              :op="DADOS_RPG.OPTIONS"
-              v-model="equipamento.damageData"
-              color="orange"
-              label="Tipo de Dado"
-            />
-          </div>
-          <div>
-            <q-checkbox
-              v-model="equipamento.ischangeAtributes"
-              label="Altera Atributo?"
-              color="teal"
-            />
-            <div v-if="ischangeAtributes">
+  <form-page name-storage="equipamentos" :model-value="this.equipamento">
+    <template v-slot:default>
+      <div class="main-container">
+        <div class="content">
+          <image-picker-vue v-model="equipamento.selectedImage" />
+          <panel>
+            <div>
               <q-input
-                outlined
-                type="number"
-                v-model.number="equipamento.changeAtributes.strength"
-                label="Força"
+                clearable
+                filled
+                color="orange"
+                v-model="equipamento.name"
+                label="Nome"
+                class="q-pt-sm"
               />
+              <div class="typeBox">
+                <label>Tipo:</label>
+                <div v-for="eqp in TIPO_EQUIPAMENTO.OPTIONS" :key="eqp.order">
+                  <q-radio
+                    keep-color
+                    v-model="equipamento.type"
+                    :val="eqp.value"
+                    :label="eqp.label"
+                    :color="eqp.color"
+                  />
+                </div>
+              </div>
+            </div>
+          </panel>
+          <panel v-if="isArmor">
+            <div>
               <q-input
-                outlined
+                clearable
+                filled
+                color="orange"
                 type="number"
-                v-model="equipamento.changeAtributes.dexterity"
+                v-model.number="equipamento.Numberdata"
+                label="numero de dados"
+                class="q-pt-sm"
+              />
+              <select-filter
+                :op="DADOS_RPG.OPTIONS"
+                v-model="equipamento.dados"
+                color="orange"
+                label="Tipo de Dado"
+              />
+              <div class="typeBox">
+                <label>Ocupa:</label>
+                <div v-for="tp in TIPO_MAOS.OPTIONS" :key="tp.order">
+                  <q-radio
+                    keep-color
+                    v-model="equipamento.hands"
+                    :val="tp.value"
+                    :label="tp.label"
+                    :color="tp.color"
+                  />
+                </div>
+                <q-checkbox
+                  v-model="equipamento.isMagic"
+                  label="È magico?"
+                  color="teal"
+                />
+              </div>
+            </div>
+          </panel>
+          <panel v-if="isEscudo || isArmadura">
+            <div>
+              <q-input
+                clearable
+                filled
+                color="orange"
+                type="number"
+                v-model.number="equipamento.defesa"
                 label="Defesa"
+                class="q-pt-sm"
               />
               <q-input
-                outlined
+                clearable
+                filled
+                color="orange"
                 type="number"
-                v-model="equipamento.changeAtributes.constitution"
-                label="Constituição"
+                v-model.number="equipamento.penalidade"
+                label="Penalidade"
+                class="q-pt-sm"
               />
-              <q-input
-                outlined
-                type="number"
-                v-model="equipamento.changeAtributes.intelligence"
-                label="Inteligencia"
-              />
-              <q-input
-                outlined
-                type="number"
-                v-model="equipamento.changeAtributes.wisdom"
-                label="Sabedoria"
-              />
-              <q-input
-                outlined
-                type="number"
-                v-model="equipamento.changeAtributes.charisma"
-                label="Carisma"
-              />
+              <div class="typeBox">
+                <label>Tipo:</label>
+                <div v-for="tp in PESO.OPTIONS" :key="tp.order">
+                  <q-radio
+                    keep-color
+                    v-model="equipamento.tipo"
+                    :val="tp.value"
+                    :label="tp.label"
+                    :color="tp.color"
+                  />
+                </div>
+                <q-checkbox
+                  v-model="equipamento.isMagic"
+                  label="È magico?"
+                  color="teal"
+                />
+              </div>
             </div>
-          </div>
+          </panel>
+          <panel>
+            <div class="q-pa-md">
+              <q-checkbox
+                v-model="equipamento.hasEfect"
+                label="Possui Efeito"
+                color="teal"
+              />
+              <div v-if="hasEfect">
+                <q-input
+                  clearable
+                  filled
+                  autogrow
+                  color="orange"
+                  type="text"
+                  v-model.number="equipamento.efectDescription"
+                  label="Descreva o Efeito"
+                  class="q-pt-sm"
+                />
+                <q-checkbox
+                  v-model="equipamento.hasDamageEfect"
+                  label="Possui Dano"
+                  color="teal"
+                />
+              </div>
+              <div v-if="hasDamageEfect">
+                <q-input
+                  clearable
+                  filled
+                  color="orange"
+                  type="number"
+                  v-model.number="equipamento.damageNumberData"
+                  label="numero de dados"
+                  class="q-pt-sm"
+                />
+                <select-filter
+                  :op="DADOS_RPG.OPTIONS"
+                  v-model="equipamento.damageData"
+                  color="orange"
+                  label="Tipo de Dado"
+                />
+              </div>
+              <div>
+                <q-checkbox
+                  v-model="equipamento.ischangeAtributes"
+                  label="Altera Atributo?"
+                  color="teal"
+                />
+                <div v-if="ischangeAtributes">
+                  <q-input
+                    outlined
+                    type="number"
+                    v-model.number="equipamento.changeAtributes.strength"
+                    label="Força"
+                  />
+                  <q-input
+                    outlined
+                    type="number"
+                    v-model="equipamento.changeAtributes.dexterity"
+                    label="Defesa"
+                  />
+                  <q-input
+                    outlined
+                    type="number"
+                    v-model="equipamento.changeAtributes.constitution"
+                    label="Constituição"
+                  />
+                  <q-input
+                    outlined
+                    type="number"
+                    v-model="equipamento.changeAtributes.intelligence"
+                    label="Inteligencia"
+                  />
+                  <q-input
+                    outlined
+                    type="number"
+                    v-model="equipamento.changeAtributes.wisdom"
+                    label="Sabedoria"
+                  />
+                  <q-input
+                    outlined
+                    type="number"
+                    v-model="equipamento.changeAtributes.charisma"
+                    label="Carisma"
+                  />
+                </div>
+              </div>
+            </div>
+          </panel>
         </div>
-      </panel>
-    </div>
-  </div>
-  <q-card class="fixed-button">
-    <q-card-actions align="right">
-      <q-btn
-        color="primary"
-        label="Salvar"
-        type="submit"
-        @click="handleSubmit"
-      />
-    </q-card-actions>
-  </q-card>
+      </div>
+    </template>
+    <template v-slot:View> <equipamento-page-form-id /></template>
+  </form-page>
 </template>
 
 <script>
@@ -209,9 +204,17 @@ import { TIPO_EQUIPAMENTO, TIPO_MAOS, PESO } from "./index";
 import { DADOS_RPG } from "../index";
 import SelectFilter from "src/components/selectFilter.vue";
 import ImagePickerVue from "src/components/ImagePicker.vue";
+import EquipamentoPageFormId from "./EquipamentoPageFormId.vue";
+import FormPage from "src/components/FormPage.vue";
 
 export default {
-  components: { panel, SelectFilter, ImagePickerVue },
+  components: {
+    panel,
+    SelectFilter,
+    ImagePickerVue,
+    EquipamentoPageFormId,
+    FormPage,
+  },
   name: "EquipamentosPageForm",
   setup() {
     return {};
@@ -252,6 +255,9 @@ export default {
   },
 
   computed: {
+    hasId() {
+      return Object(this.$route.query).hasOwnProperty("id");
+    },
     isArmor() {
       return this.equipamento.type === TIPO_EQUIPAMENTO.ARMA;
     },
@@ -294,45 +300,6 @@ export default {
           wisdom: 0,
           charisma: 0,
         });
-    },
-
-    clearForm() {
-      this.equipamento = {
-        equipamento: {
-          name: "",
-          type: "",
-          Numberdata: 1,
-          dado: "",
-          peso: "",
-          hands: "",
-          hasEfect: false,
-          efectDescription: "",
-          hasDamageEfect: false,
-          damageData: "",
-          damageNumberData: 1,
-          selectedImage: "",
-        },
-      };
-    },
-    handleSubmit() {
-      const savedEquipamento = localStorage.getItem("equipamentos");
-      if (savedEquipamento) {
-        const equipamentos = JSON.parse(savedEquipamento);
-        this.equipamento.id = savedEquipamento.length + 1;
-        equipamentos.push(this.equipamento);
-        localStorage.setItem("equipamentos", JSON.stringify(equipamentos));
-        this.$router.push(`${this.$route.fullPath}?id=${this.equipamento.id}`);
-        this.hasId = true;
-        this.clearForm();
-        return;
-      }
-      this.equipamento.id = 1;
-      const save = [this.equipamento];
-      localStorage.setItem("equipamentos", JSON.stringify(save));
-
-      this.$router.push(`${this.$route.fullPath}?id=${this.equipamento.id}`);
-      this.hasId = true;
-      this.clearForm();
     },
   },
 };

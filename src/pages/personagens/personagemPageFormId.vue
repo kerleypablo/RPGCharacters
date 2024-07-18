@@ -324,7 +324,7 @@ import panel from "../../components/panel.vue";
 
 export default {
   components: { panel },
-  name: "PersonagensPageForm",
+  name: "PersonagensPageFormId",
   data() {
     return {
       tab: ref("infos"),

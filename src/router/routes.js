@@ -5,6 +5,7 @@ import PersonagensPageForm from 'src/pages/personagens/PersonagensPageForm.vue';
 import ErrorNotFound from 'pages/ErrorNotFound.vue';
 import EquipamentosPageForm from 'src/pages/equipamentos/EquipamentosPageForm.vue';
 import EquipamentoPageView from 'src/pages/equipamentos/EquipamentoPageView.vue';
+import campanhaPageform from 'src/pages/campanha/CampanhaPageForm.vue';
 
 
 const routes = [
@@ -32,7 +33,18 @@ const routes = [
 
       { path: 'view', component: EquipamentoPageView },
       { path: 'form', name :'equipamentos-form', component: EquipamentosPageForm },
-      { path: 'form/:id', name:'equipamentos-view', component: PersonagensPageForm }
+      { path: 'form/:id', name:'equipamentos-form-id', component: EquipamentosPageForm }
+    ]
+  },
+
+  {
+    path: '/campanhas',
+    component: MainLayout,
+    children: [
+
+      { path: 'view', component: campanhaPageform },
+      { path: 'form', name :'campanha-form', component: campanhaPageform },
+      { path: 'form/:id', name:'campanha-form-id', component: campanhaPageform }
     ]
   },
   
