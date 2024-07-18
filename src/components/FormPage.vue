@@ -15,7 +15,7 @@
             color="primary"
             label="Salvar"
             type="submit"
-            @click="handleSubmit"
+            @click="this.handleSubmit"
           />
         </q-card-actions>
       </q-card>
@@ -68,7 +68,6 @@ export default {
       this.form.data = {};
     },
     handleSubmit() {
-      debugger;
       this.form.data = this.modelValue;
       const saveStorage = localStorage.getItem(`${this.nameStorage}`);
       if (saveStorage) {
