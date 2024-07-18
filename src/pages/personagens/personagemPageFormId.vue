@@ -9,6 +9,7 @@
           active-color="primary"
           indicator-color="purple"
           align="justify"
+          shrink
         >
           <q-tab name="infos" label="info" />
           <q-tab name="atributos" label="Equipamentos" />
