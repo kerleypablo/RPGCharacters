@@ -39,7 +39,7 @@
       </q-card-actions>
       <q-slide-transition v-if="isPersonagem">
         <div v-show="expanded">
-          <q-card-section class="text-subtitle2">
+          <q-card-section class="infoexpanded">
             <span class="text-caption text-grey q-ml-sm">{{
               data.attributes.strength
             }}</span>
@@ -119,7 +119,9 @@ export default {
 
 <style lang="sass" scoped>
 .my-card
-  width: 100%
+  margin: 0px
+  mmax-width: 300px
+  min-width: 250px
   max-width: 300px
 
 .custom-link
@@ -131,4 +133,8 @@ export default {
   object-fit: cover
   max-width: 300px
   height: 150px
+
+.infoexpanded
+  display: flex
+  flex-wrap: wrap
 </style>

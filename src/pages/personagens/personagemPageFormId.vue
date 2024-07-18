@@ -15,7 +15,7 @@
           <q-tab name="pericias" label="Perícias" />
           <q-tab name="outros" label="Background" />
         </q-tabs>
-        <q-tab-panels v-model="tab" animated class="text-white">
+        <q-tab-panels v-model="tab" animated swipeable class="text-white">
           <q-tab-panel name="infos">
             <panel>
               <div class="tabInfochar">

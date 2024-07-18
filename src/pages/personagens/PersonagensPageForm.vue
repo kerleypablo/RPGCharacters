@@ -16,7 +16,7 @@
             <q-tab name="pericias" label="Perícias" />
             <q-tab name="outros" label="Outros" />
           </q-tabs>
-          <q-tab-panels v-model="tab" animated class="text-white">
+          <q-tab-panels v-model="tab" animated swipeable class="text-white">
             <q-tab-panel name="infos">
               <image-picker-vue v-model="character.selectedImage" />
               <q-input
